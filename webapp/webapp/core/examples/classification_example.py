@@ -1,11 +1,11 @@
 import cv2
-from core.classification.classification_model import ClassificationModel
+from webapp.webapp.core.classification.classification_model import ClassificationModel
 
 
 # config
-classification_config_file_path = "/home/lecun/anibal/github/deep-learning-backend/core/models" \
+classification_config_file_path = "/home/lecun/anibal/github/deep-learning-backend/webapp/webapp/core/models" \
                                   "/config_imagenet_efficientnet_v2_imagenet21k_s_classification_2.json"
-image_path = "/home/lecun/anibal/github/deep-learning-backend/core/test_images/crab.jpg"
+image_path = "/home/lecun/anibal/github/deep-learning-backend/webapp/webapp/core/test_images/crab.jpg"
 
 # Load model
 my_model_1 = ClassificationModel()

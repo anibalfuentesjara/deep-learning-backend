@@ -2,10 +2,10 @@ import tensorflow as tf
 import numpy as np
 import cv2
 from typing import List
-from core.errors.classification_errors import ModelNotLoadedException
-from core.classification.classification_config_reader import ClassificationConfigReader
-from core.classification.classification_utils import softmax
-from project_utils.singleton import Singleton
+from webapp.core.errors.classification_errors import ModelNotLoadedException
+from webapp.core.classification.classification_config_reader import ClassificationConfigReader
+from webapp.core.classification.classification_utils import softmax
+from webapp.project_utils.singleton import Singleton
 
 
 class ClassificationResult:
@@ -24,16 +24,21 @@ class ClassificationResult:
     def get_class_index(self):
         return self.__class_index
 
+    def to_obj(self):
+        return {"class_name": self.__class_name, "class_probability": float(self.__class_probability),
+                "class_index": int(self.__class_index)}
+
 
 class ClassificationPredictions:
 
     def __init__(self, classification_results_list: List[ClassificationResult]):
         self.__classification_results_list: List[ClassificationResult] = classification_results_list
 
-    def print_classification_predictions(self):
+    def to_obj(self):
+        output_list = []
         for classification_result in self.__classification_results_list:
-            print("id: {} , name: {} , probability: {}".format(classification_result.get_class_index(),
-                  classification_result.get_class_name(), classification_result.get_class_probability()))
+            output_list.append(classification_result.to_obj())
+        return {"classification_results": output_list}
 
 
 class ClassificationModel(metaclass=Singleton):

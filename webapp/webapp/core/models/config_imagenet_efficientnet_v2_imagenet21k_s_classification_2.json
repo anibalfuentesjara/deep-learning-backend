@@ -1,0 +1,7 @@
+{
+	"MODEL_PATH": "/home/lecun/anibal/github/deep-learning-backend/webapp/webapp/core/models/imagenet_efficientnet_v2_imagenet21k_s_classification_2",
+	"INPUT_WIDTH": 384,
+	"INPUT_HEIGHT": 384,
+	"OUTPUT_LAYER_NAME": "output_1",
+	"CLASSES_NAMES_FILE": "/home/lecun/anibal/github/deep-learning-backend/webapp/webapp/core/models/imagenet21k_wordnet_lemmas.txt"
+}

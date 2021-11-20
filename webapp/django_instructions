@@ -1,0 +1,30 @@
+Crear proyecto django
+django-admin startproject <proyectname>
+
+
+
+Iniciar servidor de desarrollo
+python manage.py runserver
+
+
+
+Crear app dentro de un proyecto (ej: classification)
+python manage.py startapp <appname>
+
+
+
+Crear una vista
+Dentro de views de mi app
+def index(request):
+    return HttpResponse("Hello world!")
+
+Dentro de urls
+urlpatterns = [
+    path('', views.index, name='index')
+]
+
+Dentro de las urls base
+path('classification/', include('classification.urls')),
+
+
+
